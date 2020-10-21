@@ -1,7 +1,6 @@
 package com.abanoub.CharReplacer;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,20 +14,12 @@ public class Gooey {
     JTextField shiftChars;
 
     public Gooey() {
-        replaceButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Main.setReplacementArray();
-                String string = Main.replace(inputText.getText(), shiftChars.getText());
-                outputText.setText(string);
-            }
+        replaceButton.addActionListener(e -> {
+            Main.setReplacementArray();
+            String string = Main.replace(inputText.getText(), shiftChars.getText());
+            outputText.setText(string);
         });
-        setArrayButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Main.setReplacementArray();
-            }
-        });
+        setArrayButton.addActionListener(e -> Main.setReplacementArray());
     }
     void run() {
         JFrame frame = new JFrame("Char Rep 2.31");
